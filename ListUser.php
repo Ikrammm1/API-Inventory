@@ -2,7 +2,19 @@
 
 include './conn.php';
 
-$sql = "SELECT * FROM users";
+$sql = "SELECT 
+                users.id,
+                users.name,
+                users.email,
+                users.password,
+                users.address,
+                users.role,
+                users.phone_number,
+                role.id as role_id,
+                role.name as role_name
+            FROM users 
+            INNER JOIN role on users.role = role.id 
+            WHERE users.role = role.id";
 $query = $conn->query($sql);
 
 if ($query->num_rows < 1) {

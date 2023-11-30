@@ -2,14 +2,15 @@
 include './conn.php';
 
 //ambil data yang dikirim dari android
-$id = $_POST['id'];
-$status = "nonaktif";
-$sql_update = "UPDATE supplier SET 
-    status = '$status' 
-WHERE id = '$id'";
-$query_update = $conn->query($sql_update);
+$name = $_POST['name'];
+$address = $_POST['address'];
+$phone_number = $_POST['phone_number'];
+
+$sql_input = "INSERT INTO supplier (name, address, phone_number) 
+            VALUES ('$name','$address','$phone_number')";
+$query_input = $conn->query($sql_input);
 // var_dump($sql_input);
-if ($query_update) {
+if ($query_input) {
     echo json_encode(
         array(
             'status' => true,
@@ -25,7 +26,7 @@ if ($query_update) {
     );
 }
 
-
 // mengatur tampilan json
 
-header('Content-Type: application/json');
+header('Content-Type: application/json')
+?>
