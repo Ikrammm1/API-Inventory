@@ -2,7 +2,7 @@
 
 include './conn.php';
 
-$sql = "SELECT * FROM supplier";
+$sql = "SELECT * FROM users";
 $query = $conn->query($sql);
 
 if ($query->num_rows < 1) {
@@ -21,12 +21,14 @@ if ($query->num_rows < 1) {
             array(
                 "id" => $row["id"],
                 "name" => $row["name"],
+                "email" => $row["email"],
                 "address" => $row["address"],
+                "role" => $row["role_name"],
                 "phone_number" => $row["phone_number"]
             )
         );
     }
-    echo json_encode(array('Supplier' => $result));
+    echo json_encode(array('Users' => $result));
 }
 
 // mengatur tampilan json
