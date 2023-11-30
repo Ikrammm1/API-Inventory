@@ -12,11 +12,12 @@ $sql = "SELECT product.id,
     category.name as category,
     supplier.name as supplier,
     supplier.address as supplier_address,
-    supplier.phone_number as supplier_phone
+    supplier.phone_number as supplier_phone,
+    product.status as status
 FROM product
-INNER JOIN category on product.category_id = category.category.id
+INNER JOIN category on product.category_id = category.category_id
 INNER JOIN supplier on product.supplier_id = supplier.id
-WHERE product.category_id = category.category.id
+WHERE product.category_id = category.category_id
 AND product.supplier_id = supplier.id";
 $query = $conn->query($sql);
 
@@ -45,6 +46,7 @@ if ($query->num_rows < 1) {
                 "supplier" => $row["supplier"],
                 "supplier_address" => $row["supplier_address"],
                 "supplier_phone" => $row["supplier_phone"],
+                "status" => $row["status"]
             )
         );
     }
