@@ -8,11 +8,7 @@
 		$stok = $_POST['stok'];
 		$price = $_POST['price'];
 		$description = $_POST['description'];
-
-		$sql = "SELECT * FROM users WHERE email = '$email'";
-		$query = $conn->query($sql);
     
-		if($query->num_rows < 1){
 			$sql_input = "INSERT INTO product (
                 category_id, 
                 supplier_id,
@@ -43,17 +39,6 @@
                     )
                 );
             }
-
-            
-		}
-		else{
-			    echo json_encode(
-                    array(
-                        'status' => false,
-                        'message' => 'Email is already exists',
-                    )
-                );
-		}
 
 // mengatur tampilan json
 
