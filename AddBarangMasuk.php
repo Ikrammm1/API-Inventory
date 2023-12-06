@@ -5,7 +5,6 @@ include './conn.php';
 $dateIn = $_POST['date_in'];
 $admin = $_POST['admin'];
 $product_id = $_POST['product_id'];
-$supplier_id = $_POST['supplier_id'];
 $qty = $_POST['qty'];
 $description = $_POST['description'];
 
@@ -19,7 +18,6 @@ $sql_input = "INSERT INTO recieved (
             VALUES ('$dateIn', 
                 '$admin', 
                 '$product_id', 
-                '$supplier_id',
                 '$qty', 
                 '$description')";
 $query_input = $conn->query($sql_input);
