@@ -6,7 +6,6 @@ $id = $_POST['id'];
 $dateIn = $_POST['date_in'];
 $admin = $_POST['admin'];
 $product_id = $_POST['product_id'];
-$supplier_id = $_POST['supplier_id'];
 $qty = $_POST['qty'];
 $description = $_POST['description'];
 
@@ -23,7 +22,6 @@ $sql_update = "UPDATE recieved SET
     date_in = '$dateIn', 
     admin = '$admin', 
     product_id = '$product_id',
-    supplier_id = '$supplier_id',
     qty = '$qty' ,
     description = '$description'
 WHERE id = '$id'";

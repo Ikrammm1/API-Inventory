@@ -4,7 +4,7 @@ include './conn.php';
 //ambil data yang dikirim dari android
 $category_id = $_POST['category_id'];
 $name = $_POST['name'];
-        $status = $_POST['status'];
+$status = $_POST['status'];
 
 $sql_update = "UPDATE category SET 
     name = '$name' ,
