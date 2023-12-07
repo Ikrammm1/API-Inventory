@@ -3,9 +3,7 @@ include './conn.php';
 
 //ambil data yang dikirim dari android
 $id = $_POST['id'];
-$status = "nonaktif";
-$sql_update = "UPDATE product SET 
-    status = '$status' 
+$sql_update = "DELETE FROM product 
 WHERE id = '$id'";
 $query_update = $conn->query($sql_update);
 // var_dump($sql_input);

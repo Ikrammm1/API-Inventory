@@ -19,6 +19,7 @@ INNER JOIN category on product.category_id = category.category_id
 INNER JOIN supplier on product.supplier_id = supplier.id
 WHERE product.category_id = category.category_id
 AND product.supplier_id = supplier.id
+AND product.status = 'aktif'
 order by product.status, product.id DESC";
 $query = $conn->query($sql);
 

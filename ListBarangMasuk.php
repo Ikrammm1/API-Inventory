@@ -3,10 +3,10 @@
 include './conn.php';
 
 $sql = "SELECT
-    recieved.id,
-    recieved.date_in,
-    recieved.qty,
-    recieved.description,
+    received.id,
+    received.date_in,
+    received.qty,
+    received.description,
     product.id as product_id,
     product.name as product,
     product.stok,
@@ -19,14 +19,14 @@ $sql = "SELECT
     supplier.phone_number as supplier_phone,
     users.name as admin
 FROM product
-INNER JOIN recieved on recieved.product_id = product.id
+INNER JOIN received on received.product_id = product.id
 INNER JOIN category on product.category_id = category.category_id
 INNER JOIN supplier on product.supplier_id = supplier.id
-INNER JOIN users on users.id = recieved.admin
+INNER JOIN users on users.id = received.admin
 WHERE product.category_id = category.category_id
 AND product.supplier_id = supplier.id
-AND product.id = recieved.product_id
-AND users.id = recieved.admin
+AND product.id = received.product_id
+AND users.id = received.admin
 ";
 $query = $conn->query($sql);
 

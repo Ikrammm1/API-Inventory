@@ -6,13 +6,11 @@ $id = $_POST['id'];
 $name = $_POST['name'];
 $address = $_POST['address'];
 $phone_number = $_POST['phone_number'];
-$status = $_POST['status'];
 
 $sql_update = "UPDATE supplier SET 
     name = '$name', 
     address = '$address',
-    phone_number = '$phone_number',
-    status = '$status'
+    phone_number = '$phone_number'
 WHERE id = '$id'";
 $query_update = $conn->query($sql_update);
 // var_dump($sql_input);

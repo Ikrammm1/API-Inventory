@@ -9,8 +9,6 @@ $id = $_POST['id'];
 		$stok = $_POST['stok'];
 		$price = $_POST['price'];
 		$description = $_POST['description'];
-        $status = $_POST['status'];
-
 
 $sql_update = "UPDATE product SET 
     category_id = '$category_id', 
@@ -18,8 +16,7 @@ $sql_update = "UPDATE product SET
     name = '$name' ,
     stok = '$stok' ,
     price = '$price',
-    description = '$description',
-    status = '$status'
+    description = '$description'
 WHERE id = '$id'";
 $query_update = $conn->query($sql_update);
 // var_dump($sql_input);
