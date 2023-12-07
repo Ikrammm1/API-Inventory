@@ -2,7 +2,7 @@
 
 include './conn.php';
 
-$sql = "SELECT * FROM category where status = 'aktif'";
+$sql = "SELECT * FROM category";
 $query = $conn->query($sql);
 
 if ($query->num_rows < 1) {

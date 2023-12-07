@@ -2,7 +2,7 @@
 
 include './conn.php';
 
-$sql = "SELECT * FROM category where status = 'aktif'";
+$sql = "SELECT * FROM supplier ";
 $query = $conn->query($sql);
 
 if ($query->num_rows < 1) {
@@ -19,13 +19,16 @@ if ($query->num_rows < 1) {
         array_push(
             $result,
             array(
-                "category_id" => $row["category_id"],
+                "id" => $row["id"],
                 "name" => $row["name"],
+                "address" => $row["address"],
+                "phone_number" => $row["phone_number"],
                 "status" => $row["status"]
+
             )
         );
     }
-    echo json_encode(array('Category' => $result));
+    echo json_encode(array('Supplier' => $result));
 }
 
 // mengatur tampilan json

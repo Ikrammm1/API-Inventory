@@ -2,7 +2,7 @@
 
 include './conn.php';
 
-$sql = "SELECT * FROM supplier";
+$sql = "SELECT * FROM supplier where status = 'aktif'";
 $query = $conn->query($sql);
 
 if ($query->num_rows < 1) {
