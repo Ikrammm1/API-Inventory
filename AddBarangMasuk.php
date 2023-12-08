@@ -8,11 +8,10 @@ $product_id = $_POST['product_id'];
 $qty = $_POST['qty'];
 $description = $_POST['description'];
 
-$sql_input = "INSERT INTO recieved (
+$sql_input = "INSERT INTO received (
                 date_in, 
                 admin,
                 product_id, 
-                supplier_id, 
                 qty,
                 description) 
             VALUES ('$dateIn', 

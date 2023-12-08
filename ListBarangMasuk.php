@@ -27,6 +27,7 @@ WHERE product.category_id = category.category_id
 AND product.supplier_id = supplier.id
 AND product.id = received.product_id
 AND users.id = received.admin
+ORDER BY received.date_in DESC
 ";
 $query = $conn->query($sql);
 
