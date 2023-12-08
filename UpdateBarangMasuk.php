@@ -4,23 +4,21 @@ include './conn.php';
 //ambil data yang dikirim dari android
 $id = $_POST['id'];
 $dateIn = $_POST['date_in'];
-$admin = $_POST['admin'];
 $product_id = $_POST['product_id'];
 $qty = $_POST['qty'];
 $description = $_POST['description'];
 
-$sqlRecieved = "SELECT * FROM recieved WHERE id = '$id'";
+$sqlRecieved = "SELECT * FROM received WHERE id = '$id'";
 $queryRecieved = $conn->query($sqlRecieved);
-$rowRecieved = $query->fetch_assoc();
+$rowRecieved = $queryRecieved->fetch_assoc();
 $sqlProduct = "SELECT * FROM product WHERE id = '$product_id'";
 $queryProduct = $conn->query($sqlProduct);
-$rowProduct = $query->fetch_assoc();    
+$rowProduct = $queryProduct->fetch_assoc();    
 $stok = ($rowProduct['stok'] - $rowRecieved['qty'] + $qty);
 
 
-$sql_update = "UPDATE recieved SET 
-    date_in = '$dateIn', 
-    admin = '$admin', 
+$sql_update = "UPDATE received SET 
+    date_in = '$dateIn',
     product_id = '$product_id',
     qty = '$qty' ,
     description = '$description'
