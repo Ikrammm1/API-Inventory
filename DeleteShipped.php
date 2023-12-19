@@ -7,10 +7,10 @@ $product_id = $_POST['product_id'];
 
 $sqlShipped = "SELECT * FROM shipped WHERE id = '$id'";
 $queryShipped = $conn->query($sqlShipped);
-$rowShipped = $query->fetch_assoc();
+$rowShipped = $queryShipped->fetch_assoc();
 $sqlProduct = "SELECT * FROM product WHERE id = '$product_id'";
 $queryProduct = $conn->query($sqlProduct);
-$rowProduct = $query->fetch_assoc();    
+$rowProduct = $queryProduct->fetch_assoc();    
 $stok = ($rowProduct['stok'] + $rowShipped['qty']);
 
 $sql_delete = "DELETE FROM shipped WHERE id = '$id'";

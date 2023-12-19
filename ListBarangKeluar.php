@@ -27,6 +27,7 @@ WHERE product.category_id = category.category_id
 AND product.supplier_id = supplier.id
 AND product.id = shipped.product_id
 AND users.id = shipped.admin
+ORDER BY shipped.date_out DESC
 ";
 $query = $conn->query($sql);
 

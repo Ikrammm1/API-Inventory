@@ -14,7 +14,8 @@ $sql = "SELECT
                 role.name as role_name
             FROM users 
             INNER JOIN role on users.role = role.id 
-            WHERE users.role = role.id";
+            WHERE users.role = role.id
+            AND users.status = 'aktif'";
 $query = $conn->query($sql);
 
 if ($query->num_rows < 1) {

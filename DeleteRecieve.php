@@ -5,15 +5,15 @@ include './conn.php';
 $id = $_POST['id'];
 $product_id = $_POST['product_id'];
 
-$sqlRecieved = "SELECT * FROM recieved WHERE id = '$id'";
+$sqlRecieved = "SELECT * FROM received WHERE id = '$id'";
 $queryRecieved = $conn->query($sqlRecieved);
-$rowRecieved = $query->fetch_assoc();
+$rowRecieved = $queryRecieved->fetch_assoc();
 $sqlProduct = "SELECT * FROM product WHERE id = '$product_id'";
 $queryProduct = $conn->query($sqlProduct);
-$rowProduct = $query->fetch_assoc();    
+$rowProduct = $queryProduct->fetch_assoc();    
 $stok = ($rowProduct['stok'] - $rowRecieved['qty']);
 
-$sql_delete = "DELETE FROM recieved WHERE id = '$id'";
+$sql_delete = "DELETE FROM received WHERE id = '$id'";
 $query_delete = $conn->query($sql_delete);
 // var_dump($sql_input);
 if ($query_delete) {
