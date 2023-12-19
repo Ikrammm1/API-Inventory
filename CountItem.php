@@ -3,11 +3,11 @@
 include './conn.php';
 
 $sql = "SELECT
-    COUNT(DISTINCT product.id) AS total_produk,
-    COUNT(DISTINCT category.category_id) AS total_kategori,
-    COUNT(DISTINCT supplier.id) AS total_supplier,
-    COUNT(DISTINCT received.id) AS total_received,
-    COUNT(DISTINCT shipped.id) AS total_shipped
+COUNT(DISTINCT product.id) AS total_produk,
+(SELECT COUNT(*) FROM category WHERE category.`status` = 'aktif') AS total_kategori,
+(SELECT COUNT(*) FROM supplier WHERE supplier.`status` = 'aktif') AS total_supplier,
+COUNT(DISTINCT received.id) AS total_received,
+COUNT(DISTINCT shipped.id) AS total_shipped
 FROM product
 LEFT JOIN category ON product.id = category.category_id
 LEFT JOIN supplier ON product.id = supplier.id

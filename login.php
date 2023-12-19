@@ -19,6 +19,7 @@
             FROM users 
             INNER JOIN role on users.role = role.id 
             WHERE users.role = role.id
+            AND users.status = 'aktif'
             AND email = '$email'";
 		$query = $conn->query($sql);
        
